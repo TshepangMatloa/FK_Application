@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FK_DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Files_tbl">
+    <Key>
+      <PropertyRef Name="File_ID" />
+    </Key>
+    <Property Name="File_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="File_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="File_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="Availability" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Login_tbl">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="FK_DbEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Files_tbl" EntityType="Self.Files_tbl" />
+    <EntitySet Name="Login_tbl" EntityType="Self.Login_tbl" />
+    <EntitySet Name="FileKeeper_View_1" EntityType="FK_DbModel.FileKeeper_View_1" />
+  </EntityContainer>
+  <EntityType Name="FileKeeper_View_1">
+    <Key>
+      <PropertyRef Name="File_ID" />
+    </Key>
+    <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="File_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="File_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="File_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Availability" Type="Boolean" />
+  </EntityType>
+</Schema>

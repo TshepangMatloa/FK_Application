@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FK_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Files_tbl">
+    <Key>
+      <PropertyRef Name="File_ID" />
+    </Key>
+    <Property Name="File_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="File_Name" Type="varchar" MaxLength="50" />
+    <Property Name="File_Number" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="File_Room" Type="varchar" MaxLength="50" />
+    <Property Name="User_ID" Type="int" />
+    <Property Name="Availability" Type="bit" />
+  </EntityType>
+  <EntityType Name="Login_tbl">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="10" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="User_Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FK_Db.dbo.FileKeeper_View_1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FileKeeper_View_1">
+    <Key>
+      <PropertyRef Name="File_ID" />
+    </Key>
+    <Property Name="File_Name" Type="varchar" MaxLength="50" />
+    <Property Name="File_Number" Type="varchar" MaxLength="50" />
+    <Property Name="File_Room" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="First_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="User_ID" Type="int" />
+    <Property Name="File_ID" Type="int" Nullable="false" />
+    <Property Name="User_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Availability" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="FK_DbModelStoreContainer">
+    <EntitySet Name="Files_tbl" EntityType="Self.Files_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login_tbl" EntityType="Self.Login_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileKeeper_View_1" EntityType="Self.FileKeeper_View_1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FileKeeper_View_1].[File_Name] AS [File_Name], 
+    [FileKeeper_View_1].[File_Number] AS [File_Number], 
+    [FileKeeper_View_1].[File_Room] AS [File_Room], 
+    [FileKeeper_View_1].[Date] AS [Date], 
+    [FileKeeper_View_1].[First_Name] AS [First_Name], 
+    [FileKeeper_View_1].[Last_Name] AS [Last_Name], 
+    [FileKeeper_View_1].[User_Name] AS [User_Name], 
+    [FileKeeper_View_1].[Email] AS [Email], 
+    [FileKeeper_View_1].[User_ID] AS [User_ID], 
+    [FileKeeper_View_1].[File_ID] AS [File_ID], 
+    [FileKeeper_View_1].[User_Type] AS [User_Type], 
+    [FileKeeper_View_1].[Availability] AS [Availability]
+    FROM [dbo].[FileKeeper_View_1] AS [FileKeeper_View_1]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

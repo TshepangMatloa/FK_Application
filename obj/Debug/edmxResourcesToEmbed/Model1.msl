@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FK_DbModelStoreContainer" CdmEntityContainer="FK_DbEntities4">
+    <EntitySetMapping Name="Files_tbl">
+      <EntityTypeMapping TypeName="FK_DbModel.Files_tbl">
+        <MappingFragment StoreEntitySet="Files_tbl">
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="File_ID" ColumnName="File_ID" />
+          <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+          <ScalarProperty Name="File_Number" ColumnName="File_Number" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="File_Room" ColumnName="File_Room" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login_tbl">
+      <EntityTypeMapping TypeName="FK_DbModel.Login_tbl">
+        <MappingFragment StoreEntitySet="Login_tbl">
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileKeeper_View_1">
+      <EntityTypeMapping TypeName="FK_DbModel.FileKeeper_View_1">
+        <MappingFragment StoreEntitySet="FileKeeper_View_1">
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="File_ID" ColumnName="File_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="File_Room" ColumnName="File_Room" />
+          <ScalarProperty Name="File_Number" ColumnName="File_Number" />
+          <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

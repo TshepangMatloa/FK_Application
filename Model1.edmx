@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FK_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Files_tbl">
+          <Key>
+            <PropertyRef Name="File_ID" />
+          </Key>
+          <Property Name="File_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File_Name" Type="varchar" MaxLength="50" />
+          <Property Name="File_Number" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="File_Room" Type="varchar" MaxLength="50" />
+          <Property Name="User_ID" Type="int" />
+          <Property Name="Availability" Type="bit" />
+        </EntityType>
+        <EntityType Name="Login_tbl">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="User_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="10" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="User_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FK_Db.dbo.FileKeeper_View_1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FileKeeper_View_1">
+          <Key>
+            <PropertyRef Name="File_ID" />
+          </Key>
+          <Property Name="File_Name" Type="varchar" MaxLength="50" />
+          <Property Name="File_Number" Type="varchar" MaxLength="50" />
+          <Property Name="File_Room" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="User_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="User_ID" Type="int" />
+          <Property Name="File_ID" Type="int" Nullable="false" />
+          <Property Name="User_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Availability" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="FK_DbModelStoreContainer">
+          <EntitySet Name="Files_tbl" EntityType="Self.Files_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login_tbl" EntityType="Self.Login_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileKeeper_View_1" EntityType="Self.FileKeeper_View_1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FileKeeper_View_1].[File_Name] AS [File_Name], 
+    [FileKeeper_View_1].[File_Number] AS [File_Number], 
+    [FileKeeper_View_1].[File_Room] AS [File_Room], 
+    [FileKeeper_View_1].[Date] AS [Date], 
+    [FileKeeper_View_1].[First_Name] AS [First_Name], 
+    [FileKeeper_View_1].[Last_Name] AS [Last_Name], 
+    [FileKeeper_View_1].[User_Name] AS [User_Name], 
+    [FileKeeper_View_1].[Email] AS [Email], 
+    [FileKeeper_View_1].[User_ID] AS [User_ID], 
+    [FileKeeper_View_1].[File_ID] AS [File_ID], 
+    [FileKeeper_View_1].[User_Type] AS [User_Type], 
+    [FileKeeper_View_1].[Availability] AS [Availability]
+    FROM [dbo].[FileKeeper_View_1] AS [FileKeeper_View_1]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FK_DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Files_tbl">
+          <Key>
+            <PropertyRef Name="File_ID" />
+          </Key>
+          <Property Name="File_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="File_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="File_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_ID" Type="Int32" />
+          <Property Name="Availability" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Login_tbl">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="FK_DbEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Files_tbl" EntityType="Self.Files_tbl" />
+          <EntitySet Name="Login_tbl" EntityType="Self.Login_tbl" />
+          <EntitySet Name="FileKeeper_View_1" EntityType="FK_DbModel.FileKeeper_View_1" />
+        </EntityContainer>
+        <EntityType Name="FileKeeper_View_1">
+          <Key>
+            <PropertyRef Name="File_ID" />
+          </Key>
+          <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="File_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="File_Room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_ID" Type="Int32" />
+          <Property Name="File_ID" Type="Int32" Nullable="false" />
+          <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Availability" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FK_DbModelStoreContainer" CdmEntityContainer="FK_DbEntities4">
+          <EntitySetMapping Name="Files_tbl">
+            <EntityTypeMapping TypeName="FK_DbModel.Files_tbl">
+              <MappingFragment StoreEntitySet="Files_tbl">
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="File_ID" ColumnName="File_ID" />
+                <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+                <ScalarProperty Name="File_Number" ColumnName="File_Number" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="File_Room" ColumnName="File_Room" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login_tbl">
+            <EntityTypeMapping TypeName="FK_DbModel.Login_tbl">
+              <MappingFragment StoreEntitySet="Login_tbl">
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileKeeper_View_1">
+            <EntityTypeMapping TypeName="FK_DbModel.FileKeeper_View_1">
+              <MappingFragment StoreEntitySet="FileKeeper_View_1">
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="File_ID" ColumnName="File_ID" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="File_Room" ColumnName="File_Room" />
+                <ScalarProperty Name="File_Number" ColumnName="File_Number" />
+                <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
